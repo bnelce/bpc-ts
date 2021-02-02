@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Dimensions } from "react-native";
-import { PanGestureHandler, State } from "react-native-gesture-handler";
-import { MaterialCommunityIcons } from '@expo/vector-icons'; 
+import { State } from "react-native-gesture-handler";
+import { Feather, MaterialCommunityIcons, Octicons } from '@expo/vector-icons'; 
 import { add } from "react-native-reanimated";
 import {
   cond,
@@ -37,15 +37,19 @@ import {
   Avatar,
   Initials,
   SideIndicator,
-  ActiveIndicator,
-  LeftEmptyIndicator,
-  RightEmptyIndicator,
+  ActiveIndicator
 } from "./styles";
 
 const { width } = Dimensions.get("window");
 
-const Header: React.FC = () => {
-  const [balanceIsVisible, setBalanceIsVisible] = useState(true);
+interface Props {
+  navigation: void;
+  title: string,
+  subtitle: string,
+  icon: string
+}
+
+const HeaderNav: React.FC<Props> = ({navigation, title, subtitle, icon}) => {
 
   const snapPoints = [-width - 20, (-width - 20) / 2, 0];
 
@@ -103,16 +107,15 @@ const Header: React.FC = () => {
             >
               <AccountBalanceRow>
                 <AccountBalance>
-                  <AccountBalanceValue>Bombeiro Civil Operacional</AccountBalanceValue>
+                  <AccountBalanceValue>{title}</AccountBalanceValue>
                 </AccountBalance>
               </AccountBalanceRow>
-              <AccountBalanceInfo>Vidas alheias, riquezas salvar!</AccountBalanceInfo>
+              <AccountBalanceInfo>{subtitle}</AccountBalanceInfo>
             </LeftSide>
           </AccountInfo>
           <Avatar>
-            <MaterialCommunityIcons name="fire" size={40} color="#ff500f" />
-            {/*<Avatar onPress={() => signOut()}>          
-            <Initials>ID</Initials>*/}
+            {/*<Octicons name="law" size={40} color="#ff500f" />*/}
+            <Feather name="radio" size={40} color="#ff500f" />
         </Avatar>
       </HeaderContent>
       <SideIndicator>
@@ -135,4 +138,4 @@ const Header: React.FC = () => {
   );
 };
 
-export default Header;
+export default HeaderNav;

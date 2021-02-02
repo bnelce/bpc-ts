@@ -54,10 +54,9 @@ const Banner: React.FC = ({}) => {
       <Container>
         <CustomIcon name="link" size={25} color="#ff8700" />
         <BannerInfo>
-          <BannerTitle>O PIX CHEGOU 🔑</BannerTitle>
+          <BannerTitle>NOVA VERSÃO 🤩</BannerTitle>
           <BannerContent>
-            Cadastre suas chaves para fazer pagamentos instantâneos a partir de
-            16 de novembro. É de graça!
+            Essa é a nova versão do aplicativo Bombeiro Civil Operacional. Aproveite é de graça!
           </BannerContent>
         </BannerInfo>
         <BannerCloseButton onPress={() => setBannerIsClosed(true)}>

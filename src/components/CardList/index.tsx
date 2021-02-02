@@ -43,44 +43,41 @@ const CardList: React.FC = () => {
           paddingRight: CARD_PADDING / 2,
         }}
       >
-        <InfoCard
+        <Card
           index={0}
           offsetX={offsetX}
           width={CARD_WIDTH}
           icon="shield-lock"
-          title="Plataforma de Proteção Inter"
-          description="Descubra como cuidar do que importa pra você."
-          image={{ name: "protection_platform", width: 110, height: 88 }}
+          title="Ocorrências"
+          description="Registre suas ocorrências com praticidade e consulte sempre que precisar."
+          image={{ name: "banner_oco", width: 140, height: 108 }}
         />
         <Card
           index={1}
           offsetX={offsetX}
           width={CARD_WIDTH}
           icon="extract"
-          title="Extrato"
-          description="As informações estão ocultas para garantir sua privacidade, para
-          habilitá-las, basta clicar no olho acima."
-          image={{ name: "hidden_balance", width: 120, height: 113 }}
+          title="Notícias"
+          description="Informe-se com as principais notícias sobre bombeiros civis e militares!"
+          image={{ name: "banner_news", width: 120, height: 113 }}
         />
         <Card
           index={2}
           offsetX={offsetX}
           width={CARD_WIDTH}
           icon={{ name: "card", width: 30, height: 20 }}
-          title="Mastercard"
-          description="As informações estão ocultas para garantir sua privacidade, para
-          habilitá-las, basta clicar no olho acima."
-          image={{ name: "hidden_balance", width: 120, height: 113 }}
+          title="Escala de Glasgow"
+          description="Consulte rapidamente a Escala de coma de Glasgow e esteja mais preparado nas ocorrências"
+          image={{ name: "banner_glasgow", width: 120, height: 113 }}
         />
         <Card
           index={3}
           offsetX={offsetX}
           width={CARD_WIDTH}
           icon={{ name: "pai_logo", width: 30, height: 20 }}
-          title="Plataforma Aberta Inter"
-          description="As informações estão ocultas para garantir sua privacidade, para
-          habilitá-las, basta clicar no olho acima."
-          image={{ name: "hidden_balance", width: 120, height: 113 }}
+          title="Códigos operacionais"
+          description="Tenha sempre em mãos os códigos utilizados na comunicação operacional."
+          image={{ name: "banner_code", width: 120, height: 113 }}
         />
       </Container>
     </Wrapper>

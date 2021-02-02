@@ -70,7 +70,7 @@ const Card: React.FC<Props> = ({
     >
       <CardHeader>
         <CardTitleContainer>
-          {typeof icon === "string" ? (
+          {/*{typeof icon === "string" ? (
             <CustomIcon name={icon} size={20} color="#ff8700" />
           ) : (
             <SVGLoader
@@ -78,11 +78,11 @@ const Card: React.FC<Props> = ({
               width={icon.width}
               height={icon.height}
             />
-          )}
+          )}*/}
           <CardTitle>{title}</CardTitle>
         </CardTitleContainer>
         <CardVisibility>
-          <CustomIcon name="eye-close" size={25} color="#ff8700" />
+          {/*<CustomIcon name="eye-close" size={25} color="#ff8700" />*/}
         </CardVisibility>
       </CardHeader>
       <CardContent>

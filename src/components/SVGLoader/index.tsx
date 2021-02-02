@@ -20,6 +20,12 @@ import LifeStyleSport from "../../assets/images/lifestyle_sport.svg";
 import LifeStyleTechnology from "../../assets/images/lifestyle_technology.svg";
 import LifeStyleTravel from "../../assets/images/lifestyle_travel.svg";
 import GroupPeople from "../../assets/images/group_people.svg";
+import FooterShare from "../../assets/images/footer_share.svg";
+import BannerNews from "../../assets/images/banner_news.svg";
+import BannerCode from "../../assets/images/banner_code.svg";
+import BannerGlasgow from "../../assets/images/banner_glasgow.svg";
+import BannerOco from "../../assets/images/10063.svg";
+
 
 interface Props {
   name: string;
@@ -55,6 +61,11 @@ const SVGLoader: React.FC<Props> = ({ name, width, height }) => {
     lifestyle_technology: <LifeStyleTechnology width={width} height={height} />,
     lifestyle_travel: <LifeStyleTravel width={width} height={height} />,
     group_people: <GroupPeople width={width} height={height} />,
+    footer_share:  <FooterShare width={width} height={height} />,
+    banner_news:  <BannerNews width={width} height={height} />,
+    banner_code:  <BannerCode width={width} height={height} />,
+    banner_glasgow:  <BannerGlasgow width={width} height={height} />,
+    banner_oco:  <BannerOco width={width} height={height} />,
   };
 
   return vectors[name];

@@ -26,6 +26,7 @@ export const CardTitleContainer = styled.View`
 export const CardTitle = styled.Text`
   margin-left: 10px;
   color: #8c91a9;
+  font-weight: bold;
 `;
 
 export const CardVisibility = styled.View``;

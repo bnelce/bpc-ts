@@ -111,7 +111,7 @@ const lifeStyleItems = [
   },
 ];
 
-const Home: React.FC = ({navigation}) => {
+const Home: React.FC = () => {
   const [menuIsExpanded, setMenuIsExpanded] = useState(false);
 
   const scrollViewRef = useRef<ScrollView>(null);
@@ -124,8 +124,7 @@ const Home: React.FC = ({navigation}) => {
     <Container showsVerticalScrollIndicator={false} ref={scrollViewRef}>
       <Header />
       <Content>
-        <Menu 
-          navigation={navigation}
+        <Menu
           handleScrollToTop={handleScrollToTop}
           menuIsExpanded={menuIsExpanded}
         />
@@ -140,7 +139,7 @@ const Home: React.FC = ({navigation}) => {
         </ExpandBarContainer>
         <Banner />
         <CardList />
-        {/*<Buttons>
+        <Buttons>
           <ShoppingButton>
             <SVGLoader name="shopping_cart" width={41} height={40} />
             <ShoppingButtonInfo>
@@ -222,13 +221,13 @@ const Home: React.FC = ({navigation}) => {
               <ISafeCardGenerateText>Gerar</ISafeCardGenerateText>
             </ISafeCardGenerate>
           </ISafeCard>
-        </BottomCards>*/}
+        </BottomCards>
         <Footer>
           <FooterLeftSide>
-            <FooterTitle>Convide sua equipe</FooterTitle>
+            <FooterTitle>Convide seus amigos</FooterTitle>
             <FooterDescription>
-              Indique o app e ajude outros BPCs em 
-              suas atividades!
+              Indique a Conta Digital e chame todo mundo pra ficar livre das
+              tarefas!
             </FooterDescription>
             <FooterButtonContainer>
               <FooterButton>
@@ -237,7 +236,7 @@ const Home: React.FC = ({navigation}) => {
             </FooterButtonContainer>
           </FooterLeftSide>
           <FooterRightSide>
-            <SVGLoader name="footer_share" width={155} height={152} />
+            <SVGLoader name="group_people" width={155} height={152} />
           </FooterRightSide>
         </Footer>
       </Content>

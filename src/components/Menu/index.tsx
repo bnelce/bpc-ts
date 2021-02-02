@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { FlatList, ListRenderItemInfo, Text } from "react-native";
+import React from "react";
+import { FlatList, ListRenderItemInfo } from "react-native";
 import Animated, {
   call,
   cond,
@@ -12,103 +12,75 @@ import { timing } from "react-native-redash/lib/module/v1";
 
 import { useIsFirstRender } from "../../hooks/useIsFirstRender";
 
-import SVGLoader from "../SVGLoader";
+//import SVGLoader from "../SVGLoader";
 import CustomIcon from "../CustomIcon";
+import { AntDesign, Feather, FontAwesome, MaterialCommunityIcons, Octicons } from '@expo/vector-icons'; 
 
 const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
 
-import { MenuItemContainer, MenuItem, Icon, MenuItemTitle } from "./styles";
+import {  MenuItemContainer, MenuItem, Icon, MenuItemTitle } from "./styles";
 
 const items = [
   {
-    icon: "arrows-rotate",
-    title: "Transferência",
+    icon: <Feather name="bar-chart" size={30} color="#ff8700" />,
+    title: "Dashboard",
+    route: "Laws",
   },
   {
-    icon: "pix",
-    title: "Pix",
+    icon: <FontAwesome name="fire-extinguisher" size={30} color="#ff8700" />,
+    title: "Ocorrências",
+    route: "Laws",
   },
   {
-    icon: <SVGLoader name="pai_logo" width={30} height={17} />,
-    title: "Investimentos",
+    icon: <FontAwesome name="newspaper-o" size={30} color="#ff8700" />,
+    title: "Notícias",
+    route: "Laws",
   },
   {
-    icon: "card",
-    title: "Cartões",
+    icon: <MaterialCommunityIcons name="brain" size={30} color="#ff8700" />,
+    title: "Escala de Glasgow",
+    route: "Laws",
   },
   {
-    icon: "gift",
-    title: "Gift Card",
+    icon: <Octicons name="law" size={30} color="#ff8700" />,
+    title: "Legislação",
+    route: "Laws",
   },
   {
-    icon: "billet",
-    title: "Pagamentos",
+    icon: <Octicons name="checklist" size={30} color="#ff8700" />,
+    title: "NBRs",
+    route: "CodeMenu",
   },
   {
-    icon: "insurance",
-    title: "Seguros",
+    icon: <Feather name="radio" size={30} color="#ff8700" />,
+    title: "Códigos Operacionais",
+    route: "CodeMenu",
   },
   {
-    icon: "bill",
-    title: "Depósito por boleto",
+    icon: <FontAwesome name="graduation-cap" size={30} color="#ff8700" />,
+    title: "Cursos",
+    route: "CodeMenu",
   },
   {
-    icon: "check-paper",
-    title: "Depósito por cheque",
-  },
-  {
-    icon: "mei",
-    title: "Conta MEI",
-  },
-  {
-    icon: "schedule",
-    title: "Agendamentos",
-  },
-  {
-    icon: "salary-portability",
-    title: "Portabilidade de salário",
-  },
-  {
-    icon: "hand-money",
-    title: "Empréstimo",
-  },
-  {
-    icon: "house-money",
-    title: "Financiamento Imobiliário",
-  },
-  {
-    icon: "automatic-debits",
-    title: "Débito automático",
-  },
-  {
-    icon: "key",
-    title: "Consórcio",
-  },
-  {
-    icon: "exchange",
-    title: "Câmbio",
-  },
-  {
-    icon: "recharge-phone",
-    title: "Recarga",
-  },
-  {
-    icon: "qr-code-scan",
-    title: "Interpag",
-  },
+    icon: <AntDesign name="shoppingcart" size={30} color="#ff8700" />,
+    title: "Loja",
+    route: "CodeMenu",
+  }
 ];
 
 interface MenuItemProps {
   icon: string | JSX.Element;
   title: string;
+  route: string;
 }
 
 interface Props {
   handleScrollToTop: () => void;
   menuIsExpanded: boolean;
+  navigation: void;
 }
 
-const Menu: React.FC<Props> = ({ handleScrollToTop, menuIsExpanded }) => {
+const Menu: React.FC<Props> = ({ handleScrollToTop, menuIsExpanded, navigation }) => {
   const isFirstRender = useIsFirstRender();
 
   const menuHeight = useValue(
@@ -145,35 +117,35 @@ const Menu: React.FC<Props> = ({ handleScrollToTop, menuIsExpanded }) => {
     <AnimatedFlatList
       data={items}
       renderItem={({ item, index }: ListRenderItemInfo<MenuItemProps>) => (
-        <MenuItemContainer
-          style={{
-            transform: [
-              {
-                translateY:
-                  index > 2 ? menuItemTranslateY : new Animated.Value(0),
-              },
-            ],
-            opacity:
-              index > 2
-                ? menuItemTranslateY.interpolate({
-                    inputRange: [-30, 0],
-                    outputRange: [0, 1],
-                    extrapolate: Extrapolate.CLAMP,
-                  })
-                : 1,
-          }}
-        >
-          <MenuItem>
-            <Icon>
-              {typeof item.icon === "string" ? (
-                <CustomIcon name={item.icon} size={30} color="#ff8700" />
-              ) : (
-                item.icon
-              )}
-            </Icon>
-            <MenuItemTitle>{item.title}</MenuItemTitle>
-          </MenuItem>
-        </MenuItemContainer>
+          <MenuItemContainer
+            style={{
+              transform: [
+                {
+                  translateY:
+                    index > 2 ? menuItemTranslateY : new Animated.Value(0),
+                },
+              ],
+              opacity:
+                index > 2
+                  ? menuItemTranslateY.interpolate({
+                      inputRange: [-30, 0],
+                      outputRange: [0, 1],
+                      extrapolate: Extrapolate.CLAMP,
+                    })
+                  : 1,
+            }}
+          >
+            <MenuItem onPress={() => navigation.navigate(item.route)}>
+              <Icon>
+                {typeof item.icon === "string" ? (
+                  <CustomIcon name={item.icon} size={30} color="#ff8700" />
+                ) : (
+                  item.icon
+                )}
+              </Icon>
+              <MenuItemTitle>{item.title}</MenuItemTitle>
+            </MenuItem>
+          </MenuItemContainer>
       )}
       keyExtractor={(item: MenuItemProps) => item.title}
       numColumns={3}
