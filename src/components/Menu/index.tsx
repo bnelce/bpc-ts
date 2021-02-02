@@ -43,13 +43,8 @@ const items = [
   },
   {
     icon: <Octicons name="law" size={30} color="#ff8700" />,
-    title: "Legislação",
-    route: "Laws",
-  },
-  {
-    icon: <Octicons name="checklist" size={30} color="#ff8700" />,
-    title: "NBRs",
-    route: "CodeMenu",
+    title: "Leis e Normas",
+    route: "NBRMenu",
   },
   {
     icon: <Feather name="radio" size={30} color="#ff8700" />,

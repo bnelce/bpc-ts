@@ -9,6 +9,7 @@ import CodeQ from "../pages/CodeQ";
 import CodeS from "../pages/CodeS";
 import CodeN from "../pages/CodeN";
 import CodeAFI from "../pages/CodeAFI";
+import NBRMenu from "../pages/NBRMenu";
 
 const Stack = createStackNavigator();
 
@@ -23,6 +24,7 @@ const Routes: React.FC = () => {
         <Stack.Screen name="CodeS" component={CodeS} />
         <Stack.Screen name="CodeN" component={CodeN} />
         <Stack.Screen name="CodeAFI" component={CodeAFI} />
+        <Stack.Screen name="NBRMenu" component={NBRMenu} />
       </Stack.Navigator>
     </NavigationContainer>
   );

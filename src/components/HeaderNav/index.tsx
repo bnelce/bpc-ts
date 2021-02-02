@@ -49,7 +49,7 @@ interface Props {
   icon: string
 }
 
-const HeaderNav: React.FC<Props> = ({navigation, title, subtitle, icon}) => {
+const HeaderNavNBR: React.FC<Props> = ({navigation, title, subtitle, icon}) => {
 
   const snapPoints = [-width - 20, (-width - 20) / 2, 0];
 
@@ -138,4 +138,4 @@ const HeaderNav: React.FC<Props> = ({navigation, title, subtitle, icon}) => {
   );
 };
 
-export default HeaderNav;
+export default HeaderNavNBR;
